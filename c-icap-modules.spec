@@ -45,8 +45,7 @@ URL check service for c-icap.
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
-%configure \
-	--with-c-icap=
+%configure
 %{__automake}
 %{__make}
 
