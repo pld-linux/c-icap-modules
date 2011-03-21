@@ -41,12 +41,8 @@ URL check service for c-icap.
 %patch0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
 %{__autoconf}
-%{__autoheader}
 %configure
-%{__automake}
 %{__make}
 
 %install
@@ -58,9 +54,6 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/c-icap
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
 
 %files -n c-icap-srv_clamav
 %defattr(644,root,root,755)
