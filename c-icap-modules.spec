@@ -64,10 +64,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n c-icap-srv_clamav
 %defattr(644,root,root,755)
-%{_sysconfdir}/c-icap/srv_clamav.conf
+%attr(640,root,c-icap) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/c-icap/srv_clamav.conf
 %attr(755,root,root) %{_libdir}/c_icap/srv_clamav.so
 
 %files -n c-icap-srv_url_check
 %defattr(644,root,root,755)
-%{_sysconfdir}/c-icap/srv_url_check.conf
+%attr(640,root,c-icap) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/c-icap/srv_url_check.conf
 %attr(755,root,root) %{_libdir}/c_icap/srv_url_check.so
