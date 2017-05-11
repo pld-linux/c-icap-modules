@@ -1,3 +1,10 @@
+#
+# Conditional build:
+%bcond_without	clamav		# build without clamav / virusfilter
+#
+%ifarch x32
+%undefine	with_clamav
+%endif
 Summary:	Modules for c-icap ICAP server
 Name:		c-icap-modules
 Version:	0.4.5
@@ -11,7 +18,7 @@ Patch0:		%{name}-build.patch
 URL:		http://c-icap.sourceforge.net/
 BuildRequires:	bzip2-devel
 BuildRequires:	c-icap-devel
-BuildRequires:	clamav-devel
+%{?with_clamav:BuildRequires:	clamav-devel}
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,6 +78,7 @@ cp -a services/content_filtering/srv_content_filtering.conf.default \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %{with clamav}
 %files -n c-icap-srv_clamav
 %defattr(644,root,root,755)
 %attr(640,root,c-icap) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/c-icap/clamav_mod.conf
@@ -83,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/c_icap/clamd_mod.so
 %attr(755,root,root) %{_libdir}/c_icap/virus_scan.so
 %{_datadir}/c_icap/templates/virus_scan
+%endif
 
 %files -n c-icap-srv_url_check
 %defattr(644,root,root,755)
