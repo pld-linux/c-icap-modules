@@ -1,0 +1,20 @@
+--- c_icap_modules-0.5.2/services/virus_scan/clamav_mod.c.orig	2018-09-11 16:25:29.000000000 +0200
++++ c_icap_modules-0.5.2/services/virus_scan/clamav_mod.c	2018-12-13 23:00:00.909055631 +0100
+@@ -123,7 +123,7 @@
+ #ifndef HAVE_LIBCLAMAV_095
+ struct cl_limits limits;
+ #endif
+-unsigned int CLAMSCAN_OPTIONS = CL_SCAN_STDOPT;
++unsigned int CLAMSCAN_OPTIONS = CL_DB_STDOPT;
+ 
+ struct virus_db *virusdb = NULL;
+ struct virus_db *old_virusdb = NULL;
+@@ -489,7 +489,7 @@
+                      CLAMSCAN_OPTIONS);
+ #else
+      ret =
+-         cl_scandesc(fd, &virname, &scanned_data, vdb,
++         cl_scandesc(fd, body->filename, &virname, &scanned_data, vdb,
+                      CLAMSCAN_OPTIONS);
+ #endif
+ 
