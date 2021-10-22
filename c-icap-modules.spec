@@ -7,13 +7,13 @@
 %endif
 Summary:	Modules for c-icap ICAP server
 Name:		c-icap-modules
-Version:	0.5.2
+Version:	0.5.5
 Release:	1
 License:	BSD
 Group:		Libraries
 Group:		Networking/Daemons
 Source0:	http://downloads.sourceforge.net/c-icap/c_icap_modules-%{version}.tar.gz
-# Source0-md5:	465bb8551bb6039b67b3f785c6d88ee4
+# Source0-md5:	ca6d5d124a4668d63affcaa5ab083e57
 Patch0:		%{name}-build.patch
 Patch1:		clamav0.101.patch
 URL:		http://c-icap.sourceforge.net/
