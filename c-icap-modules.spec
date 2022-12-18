@@ -8,7 +8,7 @@
 Summary:	Modules for c-icap ICAP server
 Name:		c-icap-modules
 Version:	0.5.5
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Group:		Networking/Daemons
