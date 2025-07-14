@@ -69,8 +69,8 @@ Usługa filtrowania treści dla c-icap.
 
 %prep
 %setup -q -n c_icap_modules-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__libtoolize}
